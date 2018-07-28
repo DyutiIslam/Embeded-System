@@ -1,0 +1,73 @@
+int state = 0;
+
+int fading = 15;
+
+int brightness = 0;
+
+int ledOut = 5;
+
+int val;
+
+int value;
+
+
+
+void setup() {
+
+  Serial.begin(9600);
+
+  // put your setup code here, to run once:
+
+  pinMode(ledOut, OUTPUT);
+
+}
+
+
+
+void loop() {
+
+  // put your main code here, to run repeatedly:
+
+  val = Serial.read();
+
+  val=Serial.parseInt();
+
+  Serial.println(val);
+
+  //value = val;
+
+  //value = Serial.parseInt();
+
+  
+
+  if(val == 1){
+
+     digitalWrite(ledOut, HIGH);
+
+     delay(200);
+
+     digitalWrite(ledOut, LOW);
+
+     delay(200);
+
+  } 
+
+  else{
+
+   analogWrite(ledOut, brightness);
+
+   brightness = brightness + fading;
+
+  
+
+   if(brightness <= 0 || brightness >= 255){
+
+    fading = -fading;
+
+   } 
+
+   delay(30);
+
+  }
+
+}
