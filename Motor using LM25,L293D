@@ -1,0 +1,77 @@
+int tempPin = A0;   // the output pin of LM35
+
+//int fan1 = 4;       // the pin where fan is
+
+//int fan2 = 8;        // led pin
+
+int temp;
+
+int tempMin = 20;   // the temperature to start the fan
+
+int tempMax = 50;   // the maximum temperature when fan is at 100%
+
+//int fanSpeed;
+
+ 
+
+void setup() {
+
+  pinMode(fan1, OUTPUT);
+
+  pinMode(fan2, OUTPUT);
+
+  pinMode(tempPin, INPUT);
+
+  analogReference(INTERNAL);
+
+  Serial.begin(9600);
+
+}
+
+ 
+
+void loop() {  
+
+   temp = readTemp();     // get the temperature
+
+   if(temp < tempMin) {   // if temp is lower than minimum temp
+
+       //fanSpeed = 0;      // fan is not spinning
+
+       digitalWrite(8, LOW);  
+
+       digitalWrite(4, HIGH);     
+
+   }
+
+   else{
+
+     digitalWrite(4, LOW);
+
+     digitalWrite(8, HIGH);
+
+   }
+
+   
+
+   
+
+   Serial.print("TEMP = ");
+
+   Serial.print(temp);
+
+   Serial.println("DEG C");
+
+}
+
+ 
+
+int readTemp() {  // get the temperature and convert it to celsius
+
+  temp = analogRead(tempPin);
+
+  return temp * 0.4888; 
+
+  
+
+}
