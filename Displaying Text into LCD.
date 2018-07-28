@@ -1,0 +1,43 @@
+#include<LiquidCrystal.h>
+
+
+
+const int rs = 10, en = 12, rw = 11, d0 = 2, d1 = 3, d2 = 4, d3 = 5;
+
+LiquidCrystal lcd(rs, en, rw, d0, d1, d2, d3);
+
+int backLight = 13;
+
+  
+
+void setup() {
+
+  // put your setup code here, to run once:
+
+  pinMode(backLight, OUTPUT);
+
+  digitalWrite(backLight, HIGH);
+
+  lcd.begin(16, 2);
+
+  lcd.clear();
+
+  lcd.setCursor(0, 0);
+
+  lcd.print("Hello ");
+
+  lcd.setCursor(0, 1);
+
+  lcd.print("Wrold");
+
+}
+
+
+
+void loop() {
+
+  // put your main code here, to run repeatedly:
+
+
+
+}
