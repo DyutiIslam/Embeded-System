@@ -1,0 +1,43 @@
+int val = 0;                    // variable for reading the pin status
+
+ 
+
+void setup() {
+
+  pinMode(8, OUTPUT);      // declare LED as output
+
+  pinMode(2, INPUT);     // declare sensor as input
+
+ 
+
+  Serial.begin(9600);
+
+}
+
+ 
+
+void loop(){
+
+  val = digitalRead(2);  // read input value
+
+  
+
+  if(val == 1){
+
+    //pirState = HIGH;
+
+    //Serial.print("Motion detected");
+
+    digitalWrite(8, HIGH);
+
+  }
+
+  else{
+
+   pirState = LOW;
+
+   digitalWrite(8, LOW); 
+
+  }
+
+}
