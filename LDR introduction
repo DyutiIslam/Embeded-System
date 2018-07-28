@@ -1,0 +1,37 @@
+void setup() {
+
+  Serial.begin(9600);
+
+  pinMode(8,OUTPUT);
+
+  pinMode(A0,INPUT);
+
+  // put your setup code here, to run once:
+
+
+
+}
+
+
+
+void loop() {
+
+  int value=analogRead(A0);
+
+  Serial.println(value);
+
+  if(value>100){
+
+  digitalWrite(8,LOW);
+
+}else{
+
+  digitalWrite(8,HIGH);
+
+}
+
+  // put your main code here, to run repeatedly:
+
+
+
+}
